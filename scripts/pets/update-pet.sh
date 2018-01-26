@@ -10,7 +10,6 @@ curl --include --request PATCH "http://localhost:4741/pets/${ID}" \
       "age": "'"${AGE}"'",
       "color": "'"${COLOR}"'",
       "gender": "'"${GENDER}"'",
-      "owner": "'"${OWNER}"'",
-      "user_id": "'" ${USER}"'"
+      "owner": "'"${OWNER}"'"
     }
   }'
