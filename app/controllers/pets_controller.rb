@@ -15,7 +15,7 @@ class PetsController < ProtectedController
 
   # POST /pets
   def create
-    @pet = Pet.new(pet_params)
+    @pet = current_user.pets.build(pet_params)
 
     if @pet.save
       render json: @pet, status: :created, location: @pet
@@ -41,7 +41,7 @@ class PetsController < ProtectedController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_pet
-      @pet = Pet.find(params[:id])
+      @pet = current_user.pets.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
