@@ -10,6 +10,7 @@ curl --include --request POST "http://localhost:4741/pets" \
       "age": "'"${AGE}"'",
       "color": "'"${COLOR}"'",
       "gender": "'"${GENDER}"'",
-      "owner": "'"${OWNER}"'"
+      "owner": "'"${OWNER}"'",
+      "user_id": "'" ${USER}"'"
     }
   }'
