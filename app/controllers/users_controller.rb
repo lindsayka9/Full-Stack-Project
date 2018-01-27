@@ -31,6 +31,15 @@ class UsersController < ProtectedController
   end
 
   # PATCH '/change-password/:id'
+  # def changepw
+  #   if !current_user.authenticate(pw_creds[:old]) ||
+  #      (current_user.password = pw_creds[:new]).blank? ||
+  #      !current_user.save
+  #     head :bad_request
+  #   else
+  #     head :no_content
+  #  end
+  # end
   def changepw
     # if the the old password authenticates,
     # the new one is not blank,
