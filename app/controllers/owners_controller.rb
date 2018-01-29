@@ -47,7 +47,7 @@ class OwnersController < ProtectedController
 
   # Only allow a trusted parameter "white list" through.
   def owner_params
-    params.require(:owner).permit(:first_name, :last_name, :phone_number, :user_id)
+    params.require(:owner).permit(:first_name, :last_name, :phone_number)
   end
   private :set_owner, :owner_params
 end
