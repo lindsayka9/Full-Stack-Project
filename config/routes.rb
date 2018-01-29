@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  resources :owners, except: %i[new edit]
   resources :pets, except: %i[new edit]
   resources :examples, except: %i[new edit]
   post '/sign-up' => 'users#signup'
