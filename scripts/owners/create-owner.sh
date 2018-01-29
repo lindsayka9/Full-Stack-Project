@@ -5,8 +5,7 @@ curl --include --request POST "http://localhost:4741/owners" \
   --header "Authorization: Token token=${TOKEN}" \
   --data '{
     "owner": {
-      "first_name": "'"${FIRST}"'",
-      "last_name": "'"${LAST}"'",
+      "name": "'"${NAME}"'",
       "phone_number": "'"${PHONE}"'",
       "user_id": "'" ${USER}"'"
     }

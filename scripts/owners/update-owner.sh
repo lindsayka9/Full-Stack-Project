@@ -5,8 +5,7 @@ curl --include --request PATCH "http://localhost:4741/owners/${ID}" \
   --header "Content-Type: application/json" \
   --data '{
     "owner": {
-      "first_name": "'"${FIRST}"'",
-      "last_name": "'"${LAST}"'",
+      "name": "'"${NAME}"'"
       "phone_number": "'"${PHONE}"'"
     }
   }'
