@@ -38,7 +38,7 @@ class PetsController < ProtectedController
   # DELETE /pets/1
   def destroy
     @pet.destroy
-    head :no_content
+    # head :no_content
   end
 
   # Use callbacks to share common setup or constraints between actions.
