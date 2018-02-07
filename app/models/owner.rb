@@ -3,5 +3,6 @@
 class Owner < ApplicationRecord
   has_many :pets, dependent: :destroy
   belongs_to :user
-  validates :name, presence: true
+  # has_one :user
+  validates :name, :user, presence: true
 end
