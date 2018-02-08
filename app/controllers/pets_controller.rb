@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class PetsController < ProtectedController
-  before_action :set_pet, only: %i[update]
-  before_action :set_owner, only: %i[show destroy]
+  # before_action :set_pet, only: %i[update]
+  before_action :set_owner, only: %i[show update destroy]
 
   # GET /pets
   def index
@@ -31,8 +31,8 @@ class PetsController < ProtectedController
 
   # PATCH/PUT /pets/1
   def update
-    binding.pry
-    @pet.owner_id =
+    @pet = current_user.owners.find(@owner).pets.find(params[:id])
+    @pet.owner_id = pet_params[:owner_id]
     if @pet.update(pet_params)
       render json: @pet
     else
@@ -48,9 +48,9 @@ class PetsController < ProtectedController
   end
 
   # Use callbacks to share common setup or constraints between actions.
-  def set_pet
-    @pet = current_user.owners.find(pet_params[:owner_id]).pets.find(params[:id])
-  end
+  # def set_pet
+  #   @pet = current_user.owners.find(pet_params[:owner_id]).pets.find(params[:id])
+  # end
 
   def set_owner
     # binding.pry
