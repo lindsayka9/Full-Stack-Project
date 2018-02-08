@@ -2,7 +2,7 @@
 
 class PetsController < ProtectedController
   # before_action :set_pet, only: %i[update]
-  before_action :set_owner, only: %i[show update destroy]
+  before_action :set_owner_id, only: %i[show update destroy]
 
   # GET /pets
   def index
@@ -52,7 +52,7 @@ class PetsController < ProtectedController
   #   @pet = current_user.owners.find(pet_params[:owner_id]).pets.find(params[:id])
   # end
 
-  def set_owner
+  def set_owner_id
     # binding.pry
     # @owner = current_user.owners.find(params[:owner_id])
     @owner = current_user.pets.find(params[:id])[:owner_id]
@@ -62,5 +62,5 @@ class PetsController < ProtectedController
   def pet_params
     params.require(:pet).permit(:name, :species, :age, :color, :gender, :owner_id)
   end
-  private :set_pet, :pet_params
+  private :set_owner_id, :pet_params
 end
