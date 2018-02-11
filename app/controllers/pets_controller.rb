@@ -32,7 +32,6 @@ class PetsController < ProtectedController
   # PATCH/PUT /pets/1
   def update
     @pet = current_user.owners.find(@owner).pets.find(params[:id])
-    binding.pry
     @pet.owner_id = current_user.owners.find(pet_params[:owner_id]).id
     if @pet.update(pet_params)
       render json: @pet
